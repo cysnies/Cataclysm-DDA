@@ -8,8 +8,11 @@ DATA_DIR=$BUNDLE_DIR/data
 mkdir -p $DATA_DIR
 cp -R data/{core,font,fontdata.json,json,mods,names,raw,motd,credits,title,help} $DATA_DIR/
 cp -R gfx $BUNDLE_DIR/
+# add i18n support for wasm
 cp -R lang $BUNDLE_DIR/
 
+# compile language files
+bash $BUNDLE_DIR/lang/compile_mo.sh
 
 # Remove .DS_Store files.
 find web_bundle -name ".DS_Store" -type f -exec rm {} \;
