@@ -8,11 +8,15 @@ DATA_DIR=$BUNDLE_DIR/data
 mkdir -p $DATA_DIR
 cp -R data/{core,font,fontdata.json,json,mods,names,raw,motd,credits,title,help} $DATA_DIR/
 cp -R gfx $BUNDLE_DIR/
-# add i18n support for wasm
+
+# copy lang folder to bundle dir
 cp -R lang $BUNDLE_DIR/
 
-# compile language files
-bash $BUNDLE_DIR/lang/compile_mo.sh
+# install tools for compiling language files
+apt-get install gettext -y
+
+# compile language files for zh_CN
+bash $BUNDLE_DIR/lang/compile_mo.sh zh_CN
 
 # Remove .DS_Store files.
 find web_bundle -name ".DS_Store" -type f -exec rm {} \;
