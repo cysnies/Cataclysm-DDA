@@ -10,6 +10,7 @@ cp -R data/{core,font,fontdata.json,json,mods,names,raw,motd,credits,title,help}
 cp -R gfx $BUNDLE_DIR/
 cp -R lang $BUNDLE_DIR/
 
+
 # Remove .DS_Store files.
 find web_bundle -name ".DS_Store" -type f -exec rm {} \;
 
