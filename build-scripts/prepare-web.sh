@@ -13,8 +13,8 @@ cp -R gfx $BUNDLE_DIR/
 cp -R lang $BUNDLE_DIR/
 
 # install tools for compiling language files
-apt update
-apt install gettext -y
+sudo apt update
+sudo apt install gettext -y
 
 # compile language files for zh_CN
 bash $BUNDLE_DIR/lang/compile_mo.sh zh_CN
