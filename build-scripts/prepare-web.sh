@@ -8,6 +8,7 @@ DATA_DIR=$BUNDLE_DIR/data
 mkdir -p $DATA_DIR
 cp -R data/{core,font,fontdata.json,json,mods,names,raw,motd,credits,title,help} $DATA_DIR/
 cp -R gfx $BUNDLE_DIR/
+cp -R lang $BUNDLE_DIR/
 
 # Remove .DS_Store files.
 find web_bundle -name ".DS_Store" -type f -exec rm {} \;
