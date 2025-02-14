@@ -66,18 +66,11 @@ jobs:
         ccache -c
         ccache --show-stats
 
-    - name: clear ccache on PRs
-      if: ${{ github.ref_name != 'master' && !failure() }}
-      run: |
-        emsdk activate ccache-git-emscripten-64bit
-        export PATH="${PATH%%:*}/../../ccache/git-emscripten_64bit/bin":$PATH
-        ccache -C
-
     - name: Assemble web bundle
       run: ./build-scripts/prepare-web.sh
 
     - name: Create artifact
       uses: actions/upload-artifact@v4
       with:
-        name: play-cdda
+        name: cdda-wasm
         path: build/*
