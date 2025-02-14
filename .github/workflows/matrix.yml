@@ -1,6 +1,7 @@
 name: General build matrix
 
 on:
+  workflow_call:
   push:
     branches: [0.H-branch]
   pull_request:
