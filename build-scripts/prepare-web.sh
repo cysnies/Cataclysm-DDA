@@ -7,13 +7,9 @@ rm -rf web_bundle
 sudo apt update
 sudo apt install gettext tree -y
 
-echo "Listing initial files..."
-tree -L 5
-
 BUNDLE_DIR=web_bundle
 DATA_DIR=$BUNDLE_DIR/data
 mkdir -p $DATA_DIR
-mkdir -p $BUNDLE_DIR/lang
 cp -R data/{core,font,fontdata.json,json,mods,names,raw,motd,credits,title,help} $DATA_DIR/
 cp -R gfx $BUNDLE_DIR/
 
@@ -22,10 +18,8 @@ mkdir -p lang/mo
 bash lang/compile_mo.sh zh_CN
 
 # copy lang folder to bundle dir
+mkdir -p $BUNDLE_DIR/lang
 cp -r lang/mo $BUNDLE_DIR/lang/
-
-echo "Listing files..."
-tree -L 5
 
 # Remove .DS_Store files.
 find web_bundle -name ".DS_Store" -type f -exec rm {} \;
@@ -44,13 +38,7 @@ rm -rf $DATA_DIR/mods/MA
 echo "Removing Ultica_iso tileset..."
 rm -rf $BUNDLE_DIR/gfx/Ultica_iso
 
-echo "Listing files..."
-tree -L 5
-
 $EMSDK/upstream/emscripten/tools/file_packager cataclysm-tiles.data --js-output=cataclysm-tiles.data.js --no-node --preload "$BUNDLE_DIR""@/" --lz4
-
-echo "Listing files..."
-tree -L 5
 
 mkdir -p build/
 cp \
@@ -59,6 +47,3 @@ cp \
   data/font/Terminus.ttf \
   build
 cp data/cataicon.ico build/favicon.ico
-
-echo "Listing files..."
-tree -L 5
