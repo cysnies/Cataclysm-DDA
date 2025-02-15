@@ -37,8 +37,8 @@ concurrency:
 jobs:
   skip-duplicates-code:
     continue-on-error: true
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     # Map a step output to a job output
     outputs:
       should_skip_code: ${{ steps.skip_check.outputs.should_skip }}
@@ -49,8 +49,8 @@ jobs:
           paths_ignore: '["android/**", "build-data/osx/**", "doc/**", "doxygen_doc/**", "lgtm/**", "msvc-**", "object_creator/**", "tools/**", "utilities/**", "data/**", "lang/**"]'
   skip-duplicates-data:
     continue-on-error: true
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     # Map a step output to a job output
     outputs:
       should_skip_data: ${{ steps.skip_check.outputs.should_skip }}
@@ -63,8 +63,8 @@ jobs:
     permissions:
       contents: none
     continue-on-error: true
-    #runs-on: ubuntu-latest
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    #runs-on: self-hosted
     outputs:
       fail_fast: ${{ steps.matrix_vars.outputs.fail_fast }}
       skip_tests: ${{ steps.matrix_vars.outputs.skip_tests }}
