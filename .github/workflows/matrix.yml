@@ -1,4 +1,5 @@
 name: General build matrix
+runs-on: self-hosted
 
 on:
   push:
