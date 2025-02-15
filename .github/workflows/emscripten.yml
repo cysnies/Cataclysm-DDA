@@ -53,7 +53,7 @@ jobs:
         # sure why this isn't figured out automatically.
         export EM_CONFIG=$EMSDK/.emscripten
         ccache --zero-stats
-        ccache -M 20G
+        ccache -M 5G
         ccache --show-stats
 
         ./build-scripts/build-emscripten.sh
