@@ -11,7 +11,8 @@ concurrency:
 jobs:
   build_catatclysm:
     name: Build
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       CCACHE: 1
 
